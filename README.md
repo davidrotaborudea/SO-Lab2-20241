@@ -1,5 +1,31 @@
 # Práctica 2 de laboratorio - API de Procesos #
 
+**Integrantes del equipo**
+- David Mejía Castaño  
+- Juan Pablo Zuluaga Jaramillo  
+- David Stiven Rodríguez Taborda
+
+> ## Objetivos
+> * Aprender a codificar programas usando el lenguaje C a nivel básico e intermedio.
+> * Aprender a usar las herramientas básicas para desarrollar aplicaciones en un ambiente de desarrollo linux.
+
+## Herramientas necesarias
+- macOS o Linux con `clang` o `gcc`
+- Terminal / shell
+- (Opcional) `diff`, `hexdump` y `python3` para pruebas
+
+---
+
+## Compilación
+
+```bash
+chmod +x test_solucion.sh                       
+./test_solucion.sh
+````
+
+---
+
+
 ## Instrucciones ##
 Antes de comenzar a trabajar en esta práctica se recomienda que lleve a cabo los siguientes pasos:
 1. Haga un fork de este repositorio.
