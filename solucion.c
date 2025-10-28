@@ -39,18 +39,6 @@ static char *normalize_ops(const char *in){
     return out;
 }
 
-static int split_ws(char *line, char **argv, int maxv){
-    int argc=0;
-    char *save=line;
-    char *tok;
-    while ((tok = strsep(&save, " \t")) != NULL){
-        if (*tok=='\0') continue;
-        if (argc < maxv-1) argv[argc++] = tok;
-    }
-    argv[argc] = NULL;
-    return argc;
-}
-
 typedef struct { char **dirs; size_t len, cap; } PathList;
 
 static void path_init(PathList *p){
@@ -157,11 +145,10 @@ static bool parse_job_tokens(char **tokens, int ntok, Job *job){
 }
 
 static int split_by_amp(char **tokens, int ntok, int *starts, int *ends, int maxjobs){
-    int nj=0;
-    int s=0;
+    int nj=0, s=0;
     for (int i=0;i<=ntok;i++){
         if (i==ntok || strcmp(tokens[i],"&")==0){
-            if (nj < maxjobs){
+            if (i > s && nj < maxjobs){
                 starts[nj]=s;
                 ends[nj]=i;
                 nj++;
